@@ -1,11 +1,11 @@
+var cenario, michaelJackson;
 describe('Boneco', function () {
-	var cenario = new Cenario();
-	cenario.init();
-
-	var michaelJackson = new Explorer(cenario.matrix);
-
+	
 	beforeEach(function () {
+		cenario = new Cenario();
+		cenario.init();
 		cenario.generateMatrix();
+		michaelJackson = new Explorer(cenario.matrix);
 	});
 
 	it('espero que haja uma matriz com o tamanho certo', function () {
@@ -26,13 +26,17 @@ describe('Boneco', function () {
 	});
 
 	it('espero que o metodo find encontre a linha e a coluna o valor = 1', function () {
- 		var answer = michaelJackson.find();
  		var position = cenario.insertKey(); 
- 		console.log(answer)
-		console.log(position)
+ 		console.log('position', position)
+ 		var answer = michaelJackson.find();
+ 		console.log('answer', answer)
 	 	expect( answer.line ).toBe(position.line);
 	 	expect( answer.column ).toBe(position.column);
-	 })
+	});
+
+	// it('', function () {
+
+	// });
 
 	
 	afterEach(function () {
